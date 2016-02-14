@@ -1,0 +1,183 @@
+@CHARSET "UTF-8";
+/******************************common******************************/
+.seather {
+	cursor: pointer;
+	font-family: Arial;
+}
+
+.seather .city {
+	font-weight: bold;
+	padding: 5px 15px;
+}
+
+.seather .forecast {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+.seather .forecast li {
+	display: inline-block;
+	padding: 10px;
+	margin: 0;
+}
+
+.seather .forecast li div {
+	text-align: center;
+}
+
+/*********************************color**************************************/
+.seather-gray {
+	background: #f6f5ec;
+	color: #252525;
+}
+
+.seather-gray .forecast li:hover {
+	background: #d1c7b7;
+	color: #FEFEFE;
+	opacity: 0.75;
+}
+
+/****************/
+.seather-cyan {
+	background: #66CCCC;
+	color: #336699;
+}
+
+.seather-cyan .forecast li:hover {
+	background: #009999;
+	color: #FFFFFF;
+	opacity: 0.75;
+}
+
+/****************/
+.seather-red {
+	background: #FFCCCC;
+	color: #CC0033;
+}
+
+.seather-red .forecast li:hover {
+	background: #FF6666;
+	color: #FFFFFF;
+	opacity: 0.75;
+}
+
+/****************/
+.seather-white {
+	background: #FFFFFF;
+	color: #202020;
+}
+
+.seather-white .forecast li:hover {
+	background: #EFEFEF;
+	color: #202020;
+	opacity: 0.75;
+}
+
+/*********************************size**************************************/
+.seather-small-1 {
+	width: 95px;
+}
+
+.seather-small-2 {
+	width: 190px;
+}
+
+.seather-small-3 {
+	width: 285px;
+}
+
+.seather-small-4 {
+	width: 380px;
+}
+
+.seather-small-5 {
+	width: 475px;
+}
+
+.seather-small .city {
+	font-size: 10pt;
+}
+
+.seather-small  li {
+	width: 75px;
+	font-size: 7pt;
+}
+
+.seather-small img {
+	width: 32px;
+	height: 32px;
+	max-width: 32px;
+	max-height: 32px;
+}
+
+/****************/
+.seather-middle-1 {
+	width: 100px;
+}
+
+.seather-middle-2 {
+	width: 200px;
+}
+
+.seather-middle-3 {
+	width: 300px;
+}
+
+.seather-middle-4 {
+	width: 400px;
+}
+
+.seather-middle-5 {
+	width: 500px;
+}
+
+.seather-middle .city {
+	font-size: 11pt;
+}
+
+.seather-middle li {
+	width: 80px;
+	font-size: 9pt;
+}
+
+.seather-middle img {
+	width: 48px;
+	height: 48px;
+}
+
+/****************/
+.seather-big-1 {
+	width: 120px;
+}
+
+.seather-big-2 {
+	width: 240px;
+}
+
+.seather-big-3 {
+	width: 360px;
+}
+
+.seather-big-4 {
+	width: 480px;
+}
+
+.seather-big-5 {
+	width: 600px;
+}
+
+.seather-big .city {
+	font-size: 12pt;
+}
+
+.seather-big li {
+	width: 100px;
+	font-size: 10pt;
+}
+
+.seather-big img {
+	width: 64px;
+	height: 64px;
+}
