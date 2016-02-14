@@ -136,7 +136,7 @@
 
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="js/mustache.js"></script>
-<script type="text/javascript" src="js/whatweather-1.2.min.js"></script>
+<script type="text/javascript" src="js/whatweather-1.2.js"></script>
 <script type="text/javascript">
     $("div#whatweather").whatWeather({city:"Nykvarn,Sweden", days:"5"});
 </script>
