@@ -99,14 +99,31 @@
 			$output = curl_exec($ch);
 			curl_close($ch);
 		
-			//print htmlspecialchars($output);
+//			print htmlspecialchars($output);
 			$oXML = new SimpleXMLElement($output);?>
 			<table>
 			<?php foreach($oXML->RESULT->TrainAnnouncement as $res):
+				$info = "";
+				$estTimeParts = "";
 				$time = explode("T", $res->AdvertisedTimeAtLocation);
-				$timeParts = explode(":", $time[1])
+				$timeParts = explode(":", $time[1]);
+				if (strlen($res->EstimatedTimeAtLocation) > 0) {
+	                $info = "Delayed";
+                    $estTime = $res->EstimatedTimeAtLocation;
+					$estTime = explode("T", $res->EstimatedTimeAtLocation);
+					$estTimeParts = explode(":", $estTime[1]);
+					$est = $estTimeParts[0] . ":" . $estTimeParts[1];
+                }
+				if ($res->EstimatedTimeIsPreliminary == "true") {
+					$info = "Preliminary";
+				}
+				if ($res->Canceled == "true") {
+					$info = "Canceled";
+				}
 				?>           
         			<tr>                    
+                    	<td ><?php echo $info;?></td>
+                        <td ><?php echo $est;?></td>
                         <td ><?php echo $res->AdvertisedTrainIdent;?></td>
 		            	<td><?php echo $timeParts[0] . ":" . $timeParts[1]; ?></td>
         			</tr>
