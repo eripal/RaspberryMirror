@@ -20,28 +20,37 @@ body {
 }
 
 	#upper-left {
-		width: 300px;
+		width: 40%;
+		height: 75%;
 		margin: 5px 5px 0 0;
-		height: 1700px;
 		float: left;
 		text-align: left;
 	}
 	
 	#upper-right {
-		width: 500px;
-		height: 1700px;
+		width: 40%;
+		height: 75%;
 		margin: 5px 5px 0 0;
 		float: right;
 		text-align: right;
 	}
 	
-	#bottom {
-		width: 600px;
-		height: 100px;
-		margin: 0 75px 0 75px;
-		clear: both;
-		background: url(bg.gif) repeat-x;
-		text-align: center;
+	#bottom-right {
+		width: 40%;
+		height: 25%;
+		margin: 0 0 0 0;
+		float: right;
+/*		background: url(bg.gif) repeat-x;*/
+		text-align: right;		
+	}
+
+	#bottom-left {
+		width: 40%;
+		height: 25%;
+		margin: 0 5px 0 5px;
+		float: left;
+/*		background: url(bg.gif) repeat-x;*/
+		text-align: left;
 	}
 
 /* TEXT */
