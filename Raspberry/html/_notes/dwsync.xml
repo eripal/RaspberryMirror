@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="192.168.1.65//var/www/" local="131017668957566693" remote="131017669140000000" Dst="1" />
-<file name="style.css" server="192.168.1.65//var/www/" local="131017690976734041" remote="131017691150000000" Dst="1" />
+<file name="index.php" server="192.168.1.65//var/www/" local="131525317551771133" remote="131525317590000000" Dst="2" />
+<file name="style.css" server="192.168.1.65//var/www/" local="131198914776152099" remote="131198916220000000" Dst="2" />
 <file name="bg.gif" server="192.168.1.65//var/www/" local="130569082893267957" remote="130999507370000000" Dst="1" />
-<file name="get_weather.php" server="192.168.1.65//var/www/" local="130980530040140752" remote="130980530060000000" Dst="1" />
+<file name="get_weather.php" server="192.168.1.65//var/www/" local="130980494060000000" remote="130980494060000000" Dst="2" />
 <file name="whatweather-bnlrdmFybiUyQ3N3ZWRlbg==.txt" server="192.168.1.65//var/www/" local="130985691870000000" remote="130985691870000000" Dst="1" />
 <file name="whatweather-YnJ1c3NlbHMlMkNiZWxnaXVt.txt" server="192.168.1.65//var/www/" local="130980530720000000" remote="130980530720000000" Dst="1" />
+<file name="calendar.php" server="192.168.1.65//var/www/" local="131197992646527242" remote="131197993480000000" Dst="2" />
+<file name="class.iCalReader.php" server="192.168.1.65//var/www/" local="131199972010000000" remote="131199972120000000" Dst="2" />
+<file name="ICal.php" server="192.168.1.65//var/www/" local="131283729730000000" remote="131283729730000000" Dst="2" />
+<file name="EventObject.php" server="192.168.1.65//var/www/" local="131198706085843439" remote="131198717850000000" Dst="2" />
+<file name="favicon.ico" server="192.168.1.65//var/www/" local="130569082893267957" remote="131498411190000000" Dst="2" />
 </dwsync>

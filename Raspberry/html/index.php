@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Information</title>
 	<meta name="description" content="Mitt lilla projekt">
-	<meta http-equiv="refresh" content="60" /> <!-- Updates the whole page every 30 minutes (each 1800 second) -->
+	<meta http-equiv="refresh" content="60" />
 	<link rel="stylesheet" href="style.css">
    	<link rel="stylesheet" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
@@ -45,7 +45,45 @@
     var currentTimeString = "<h1>" + currentHours + ":" + currentMinutesleadingzero + "</h1><h2>" + currentDay + " " + currentDate + " " + currentMonth + "</h2>";
     document.getElementById("clock").innerHTML = currentTimeString;
 }, 1000);
-	</script>
+</script>
+<script language="JavaScript"> <!-- Getting the current date and time and updates them every second -->
+			function getSnapshotTime()
+			{ 
+				var currentTime = new Date ( );
+				var currentHours = currentTime.getHours ( );   
+				var currentMinutes = currentTime.getMinutes ( );
+				var currentMinutesleadingzero = currentMinutes > 9 ? currentMinutes : '0' + currentMinutes; // If the number is 9 or below we add a 0 before the number.
+				var currentDate = currentTime.getDate ( );
+	
+				var weekday = new Array(7);
+					weekday[0] = "Söndag";
+					weekday[1] = "Måndag";
+					weekday[2] = "Tisdag";
+					weekday[3] = "Onsdag";
+					weekday[4] = "Torsdag";
+					weekday[5] = "Fredag";
+					weekday[6] = "Lördag";
+				var currentDay = weekday[currentTime.getDay()]; 
+	
+				var actualmonth = new Array(12);
+					actualmonth[0] = "Januari";
+					actualmonth[1] = "Februari";
+					actualmonth[2] = "Mars";
+					actualmonth[3] = "April";
+					actualmonth[4] = "Maj";
+					actualmonth[5] = "Juni";
+					actualmonth[6] = "Juli";
+					actualmonth[7] = "Augusti";
+					actualmonth[8] = "September";
+					actualmonth[9] = "Oktober";
+					actualmonth[10] = "November";
+					actualmonth[11] = "December";
+				var currentMonth = actualmonth[currentTime.getMonth ()];
+
+			    var lastUpdateTime = "<h3>" + currentHours + ":" + currentMinutesleadingzero + currentDay + " " + currentDate + " " + currentMonth + "</h3>";
+			    document.getElementById("lastUpdateClock").innerHTML = lastUpdateTime;
+			};
+</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -130,10 +168,65 @@
             <?php endforeach;?>
                 </table>
         </div>
-        <div id="bottom-right">
-            <div id="whatweather"></div>
+        <div id="middle">
+        <?php 
+			$URL = 'https://calendar.google.com/calendar/ical/s9u986ltvf97tqpkbbllmsvad0%40group.calendar.google.com/private-c3fe30e6535e940bc29f10d237683a74/basic.ics';
+			require 'class.iCalReader.php';
+			$myfile = file_get_contents($URL);
+			$myfile = str_replace("\n ", "", $myfile);
+			$myfile = str_replace("&", " and ", $myfile);
+			$mylines = split("\n", $myfile);
+			$ical = new ICal($mylines);
+			$events = $ical->events();	
+			$events= $ical->processRecurrences();
+			$Date = date('Y-m-d');
+			$events = $ical->eventsFromRange(strtotime($Date. ' -2 days'), strtotime($Date. ' + 1 week'));	
+			$weekday = Array("Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag");
+			?>
+
+		    <table>
+            	<tr>
+                	<?php $first=explode("T", $events[0]['DTSTART']);?>
+                	<?php $sec=explode("T", $events[1]['DTSTART']);?>
+                	<?php $third=explode("T", $events[2]['DTSTART']);?>
+                    <?php $forth=explode("T", $events[3]['DTSTART']);?>
+                    <?php $fifth=explode("T", $events[4]['DTSTART']);?>
+                    <?php $six=explode("T", $events[5]['DTSTART']);?>
+
+	                <th><?php echo date('l', strtotime($first[0])); ?></th>
+                    <th><?php echo date('l', strtotime($sec[0])); ?></th>
+                    <th><?php echo date('l', strtotime($third[0])); ?></th>
+                    <th><?php echo date('l', strtotime($forth[0])); ?></th>
+                    <th><?php echo date('l', strtotime($fifth[0])); ?></th>
+                    <th><?php echo date('l', strtotime($six[0])); ?></th>
+                </tr>
+				<tr>
+                   	<td><?php echo date('M d', strtotime($first[0]));?></td>
+                    <td><?php echo date('M d', strtotime($sec[0]));?></td>
+                    <td><?php echo date('M d', strtotime($third[0]));?></td>
+                    <td><?php echo date('M d', strtotime($forth[0]));?></td>
+                    <td><?php echo date('M d', strtotime($fifth[0]));?></td>
+                    <td><?php echo date('M d', strtotime($six[0]));?></td>
+                </tr>
+				<tr>
+                   	<td><?php echo $events[0]['SUMMARY']?></td>
+                    <td><?php echo $events[1]['SUMMARY']?></td>
+                    <td><?php echo $events[2]['SUMMARY']?></td>
+                    <td><?php echo $events[3]['SUMMARY']?></td>
+                    <td><?php echo $events[4]['SUMMARY']?></td>
+                    <td><?php echo $events[5]['SUMMARY']?></td>                                    
+                </tr>
+				<tr>
+                   	<td><?php echo $events[0]['LOCATION']?></td>
+                    <td><?php echo $events[1]['LOCATION']?></td>
+                    <td><?php echo $events[2]['LOCATION']?></td>
+                    <td><?php echo $events[3]['LOCATION']?></td>
+                    <td><?php echo $events[4]['LOCATION']?></td>
+                    <td><?php echo $events[5]['LOCATION']?></td>                                     
+                </tr>
+            </table>
         </div>
-        <div id="bottom-left">
+        <div id="bottom-left"> 
 			<?php // Code for getting the RSS-news-feed
 			$rss = new DOMDocument();
 			$rss->load('http://feeds.idg.se/idg/vzzs'); // Specify the address to the feed
@@ -158,14 +251,12 @@
 			}
 			?>
         </div>
+   		<div id="bottom-right">
+        	<h1>Last</h1>
+			<div id="lastUpdateClock"></div>
+		</div>
     </div>
 </body>
 </html>
-<script type="text/javascript" src="js/news/news.js"></script>
-<script type="text/javascript" src="js/compliments/compliments.js"></script>
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="js/mustache.js"></script>
-<script type="text/javascript" src="js/whatweather-1.2.js"></script>
-<script type="text/javascript">
-    $("div#whatweather").whatWeather({city:"Nykvarn,Sweden", days:"5"});
-</script>

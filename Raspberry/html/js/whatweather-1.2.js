@@ -37,7 +37,7 @@
                     ip: false,
                     geolocation: false,
                     async: true,
-                    refresh: 600,
+                    refresh: 900,
                     cache: false,
                     dayAndNight: false,
                     cssClass: "widget-1",
