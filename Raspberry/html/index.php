@@ -252,7 +252,6 @@
 			?>
         </div>
    		<div id="bottom-right">
-        	<h1>Last</h1>
 			<div id="lastUpdateClock"></div>
 		</div>
     </div>
